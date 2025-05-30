@@ -49,12 +49,12 @@ export const fetchUser = createAsyncThunk<
     return thunkAPI.rejectWithValue(getErrorMessage(err));
   }
 });
-type FormData = {
-  name?: string;
-  email?: string;
-  avatar?: File | null;
-  bio?: string;
-};
+// type FormData = {
+//   name?: string;
+//   email?: string;
+//   avatar?: File | null;
+//   bio?: string;
+// };
 export const updateUser = createAsyncThunk<
   User,
   FormData,

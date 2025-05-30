@@ -21,7 +21,13 @@ import { fetchUsers, updateUser } from "../features/users/users.slice";
 import ServerError from "./ServerError";
 import { showToast } from "../features/toast/toast.slice";
 
-type FormData = {
+// type FormData = {
+//   name?: string;
+//   email?: string;
+//   avatar?: File | null;
+//   bio?: string;
+// };
+type ProfileFormData = {
   name?: string;
   email?: string;
   avatar?: File | null;
@@ -46,7 +52,7 @@ const ProfilePage: React.FC = () => {
   //   setValue,
   //   reset,
   //   formState: { errors },
-  // } = useForm<ProfileFormData>({
+  // } = useForm<FormData>({
   //   defaultValues: {
   //     name: user?.name || "",
   //     email: user?.email || "",
@@ -60,14 +66,13 @@ const ProfilePage: React.FC = () => {
     setValue,
     reset,
     formState: { errors },
-  } = useForm<FormData>({
+  } = useForm<ProfileFormData>({
     defaultValues: {
       name: user?.name || "",
       email: user?.email || "",
       bio: user?.bio || "",
     },
   });
-
   useEffect(() => {
     if (user) {
       reset({
