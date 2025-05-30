@@ -1,54 +1,54 @@
-# React + TypeScript + Vite
+# 📸 **ShutterQuil**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> A modern full-stack **social media platform** built with **Typescript** **React**, **Node.js**, **Express**, and **MongoDB**.  
+> Share posts, like, comment, bookmark, and connect with others!
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌈 **Live Demo**
 
-## Expanding the ESLint configuration
+Check out the app live here:  
+➡️ [**https://react-social-media-g.vercel.app/**](https://react-social-media-g.vercel.app/)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## ✨ **Features**
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 🔐 Authentication
+- ✅ Secure signup & login with JWT  
+- 🛡️ Password hashing and route protection  
+- 🚦 Rate limiting to prevent abuse  
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 🧑‍💻 User Profile
+- 👤 View & edit profile info  
+- 📷 Upload profile pictures and update bio  
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### 📝 Posts
+- ✍️ Create, edit & delete posts  
+- ❤️ Like, 💬 comment, 🔄 share, and 🔖 bookmark posts  
+- 🗂️ Filter feed by your posts, likes, bookmarks, and more  
+
+### 💬 Comments
+- 💬 Add & remove comments on posts  
+- 👁️ View comment counts easily  
+
+### 🎨 UI/UX
+- 📱 Fully responsive design with Material UI  
+- 🗂️ Sidebar navigation for easy browsing  
+
+### 🔒 Security
+- 🔐 JWT authentication  
+- 🛡️ Rate limiting on key routes  
+
+---
+
+## 🛠️ **Tech Stack**
+
+| Frontend                     | Backend                       |
+|-----------------------------|------------------------------|
+| React + TypeScript           | Node.js + Express            |
+| Redux Toolkit               | MongoDB + Mongoose           |
+| Material UI (MUI)            | JWT Authentication           |
+| React Router                | Helmet, CORS, Rate Limiting  |
+
+
