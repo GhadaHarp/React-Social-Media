@@ -19,6 +19,7 @@ import {
   createPost,
   updatePost,
   fetchPosts,
+  setFeedView,
 } from "../features/posts/posts.slice";
 import { styled } from "@mui/system";
 import type { Post } from "../features/posts/posts.types";
@@ -140,6 +141,7 @@ const CustomModal: React.FC<Props> = ({ open, setOpen, editData }) => {
           await dispatch(
             createPost({ ...data, image: files[0], author: user?._id })
           ).unwrap();
+        dispatch(setFeedView("home"));
 
         dispatch(
           showToast({

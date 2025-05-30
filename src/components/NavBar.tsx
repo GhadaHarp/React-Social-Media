@@ -91,6 +91,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onMenuClick }) => {
   );
 
   const mobileMenuId = "primary-search-account-menu-mobile";
+
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
@@ -98,13 +99,53 @@ export const NavBar: React.FC<NavBarProps> = ({ onMenuClick }) => {
       id={mobileMenuId}
       keepMounted
       transformOrigin={{ vertical: "top", horizontal: "right" }}
-      open={isMobileMenuOpen}
+      open={Boolean(mobileMoreAnchorEl)}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem onClick={handleGoToProfile}>Profile</MenuItem>
-      <MenuItem onClick={handleLogout}>Logout</MenuItem>
+      {isAuthenticated
+        ? [
+            <MenuItem
+              key="profile"
+              onClick={() => {
+                handleMobileMenuClose();
+                handleGoToProfile();
+              }}
+            >
+              Profile
+            </MenuItem>,
+            <MenuItem
+              key="logout"
+              onClick={() => {
+                handleMobileMenuClose();
+                handleLogout();
+              }}
+            >
+              Logout
+            </MenuItem>,
+          ]
+        : [
+            <MenuItem
+              key="signup"
+              onClick={() => {
+                handleMobileMenuClose();
+                navigate("/signup");
+              }}
+            >
+              Signup
+            </MenuItem>,
+            <MenuItem
+              key="login"
+              onClick={() => {
+                handleMobileMenuClose();
+                navigate("/login");
+              }}
+            >
+              Login
+            </MenuItem>,
+          ]}
     </Menu>
   );
+
   function handleLogoClick() {
     navigate("/");
     dispatch(setFeedView("home"));
@@ -148,7 +189,6 @@ export const NavBar: React.FC<NavBarProps> = ({ onMenuClick }) => {
           ShutterQuil
         </Typography>
         <Box sx={{ flexGrow: 1 }} />
-
         <Box
           sx={{
             display: { xs: "none", md: "flex" },
@@ -200,6 +240,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onMenuClick }) => {
             </>
           )}
         </Box>
+
         <Box sx={{ display: { xs: "flex", md: "none" } }}>
           <IconButton
             aria-label="show more"
