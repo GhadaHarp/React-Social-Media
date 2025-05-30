@@ -42,7 +42,7 @@ export const NavBar: React.FC<NavBarProps> = ({ onMenuClick }) => {
 
   const dispatch = useAppDispatch();
   const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  // const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
   const theme = useTheme();
 
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
