@@ -4,10 +4,11 @@ import { Box } from "@mui/material";
 import { SideBar } from "../components/SideBar";
 import { AddButton } from "../components/AddButton";
 import { Outlet } from "react-router-dom";
+import { useAppSelector } from "../hooks/useTypedSelector";
 
 export const DefaultLayout: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-
+  const { isAuthenticated } = useAppSelector((state) => state.auth);
   const handleDrawerToggle = () => {
     setMobileOpen((prev) => !prev);
   };
@@ -32,7 +33,7 @@ export const DefaultLayout: React.FC = () => {
           <Outlet />
         </Box>
       </Box>
-      <AddButton />
+      {isAuthenticated && <AddButton />}
     </>
   );
 };

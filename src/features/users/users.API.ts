@@ -20,12 +20,7 @@ export const createUserRequest = async (data: {
   const res = await axiosInstance.post("/users", data);
   return res.data;
 };
-// type FormData = {
-//   name?: string;
-//   email?: string;
-//   avatar?: File | null;
-//   bio?: string;
-// };
+
 export const updateUserRequest = async (data: FormData) => {
   const res = await axiosInstance.patch(`/users`, data, {
     headers: {

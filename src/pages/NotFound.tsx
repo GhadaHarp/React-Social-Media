@@ -30,7 +30,6 @@ const NotFound: React.FC = () => {
         justifyContent="center"
         textAlign={{ xs: "center", md: "left" }}
       >
-        {/* Text Section */}
         <Box>
           <Typography
             variant="h2"
@@ -69,11 +68,8 @@ const NotFound: React.FC = () => {
           </Button>
         </Box>
 
-        {/* Image Section */}
         <Box
           component="img"
-          // src="https://illustrations.popsy.co/violet/app-launch.svg"
-          // src="./app-launch.svg"
           src="./not-found.webp"
           alt="404 Not Found Illustration"
           sx={{

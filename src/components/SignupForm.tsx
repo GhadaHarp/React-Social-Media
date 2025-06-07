@@ -69,7 +69,6 @@ export const SignupForm: React.FC = () => {
           sx={{
             display: "flex",
             flexDirection: { xs: "column", md: "row" },
-            // width: "100%",
             width: { xs: "60vw", md: "100vw" },
             maxWidth: 900,
             borderRadius: 2,

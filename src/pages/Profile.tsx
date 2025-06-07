@@ -21,12 +21,6 @@ import { fetchUsers, updateUser } from "../features/users/users.slice";
 import ServerError from "./ServerError";
 import { showToast } from "../features/toast/toast.slice";
 
-// type FormData = {
-//   name?: string;
-//   email?: string;
-//   avatar?: File | null;
-//   bio?: string;
-// };
 type ProfileFormData = {
   name?: string;
   email?: string;
@@ -45,20 +39,6 @@ const ProfilePage: React.FC = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
-  // const {
-  //   control,
-  //   register,
-  //   getValues,
-  //   setValue,
-  //   reset,
-  //   formState: { errors },
-  // } = useForm<FormData>({
-  //   defaultValues: {
-  //     name: user?.name || "",
-  //     email: user?.email || "",
-  //     bio: user?.bio || "",
-  //   },
-  // });
   const {
     control,
     register,
@@ -234,7 +214,7 @@ const ProfilePage: React.FC = () => {
                   }
                   onClick={handleEditOrSubmit}
                   fullWidth
-                  disabled={loading} // ✅ Disable during loading
+                  disabled={loading}
                 >
                   {loading ? (
                     <CircularProgress size={24} color="inherit" />

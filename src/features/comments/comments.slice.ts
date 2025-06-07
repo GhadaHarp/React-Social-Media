@@ -19,9 +19,8 @@ import {
   updateCommentRequest,
 } from "./comments.API";
 
-// ⏳ Initial State
 const initialState: CommentsState = {
-  comments: {}, // { [postId]: Comment[] }
+  comments: {},
   loading: {
     fetchingComments: false,
     creatingComment: false,
@@ -31,7 +30,6 @@ const initialState: CommentsState = {
   error: null,
 };
 
-// 📥 Fetch Comments
 export const fetchComments = createAsyncThunk(
   "comments/fetchByPostId",
   async (postId: string, thunkAPI) => {
@@ -39,7 +37,7 @@ export const fetchComments = createAsyncThunk(
       const res = await getCommentsRequest(postId);
       return {
         post: postId,
-        comments: res.data.comments, // assuming it's an array of comments
+        comments: res.data.comments,
       };
     } catch (err: any) {
       return thunkAPI.rejectWithValue(
@@ -49,7 +47,6 @@ export const fetchComments = createAsyncThunk(
   }
 );
 
-// ➕ Create Comment
 export const createComment = createAsyncThunk(
   "comments/create",
   async (payload: CreateCommentPayload, thunkAPI) => {
@@ -69,7 +66,6 @@ export const createComment = createAsyncThunk(
   }
 );
 
-// ❌ Delete Comment
 export const deleteComment = createAsyncThunk(
   "comments/delete",
   async (
@@ -87,7 +83,6 @@ export const deleteComment = createAsyncThunk(
   }
 );
 
-// ✏️ Update Comment
 export const updateComment = createAsyncThunk(
   "comments/update",
   async (
@@ -109,7 +104,6 @@ export const updateComment = createAsyncThunk(
   }
 );
 
-// 🧩 Slice
 const commentsSlice = createSlice({
   name: "comments",
   initialState,
@@ -122,7 +116,6 @@ const commentsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // Fetch
       .addCase(fetchComments.pending, (state) => {
         state.loading.fetchingComments = true;
         state.error = null;
@@ -142,7 +135,6 @@ const commentsSlice = createSlice({
         state.error = action.payload;
       })
 
-      // Create
       .addCase(createComment.pending, (state) => {
         state.loading.creatingComment = true;
         state.error = null;
@@ -163,7 +155,6 @@ const commentsSlice = createSlice({
         state.error = action.payload;
       })
 
-      // Delete
       .addCase(deleteComment.pending, (state) => {
         state.loading.deletingComment = true;
         state.error = null;
@@ -183,7 +174,6 @@ const commentsSlice = createSlice({
         state.error = action.payload;
       })
 
-      // Update
       .addCase(updateComment.pending, (state) => {
         state.loading.updatingComment = true;
         state.error = null;
@@ -208,6 +198,5 @@ const commentsSlice = createSlice({
   },
 });
 
-// ✅ Exports
 export const { resetComments } = commentsSlice.actions;
 export default commentsSlice.reducer;

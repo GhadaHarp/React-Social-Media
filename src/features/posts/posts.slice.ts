@@ -369,7 +369,6 @@ const postsSlice = createSlice({
         state.error = action.payload;
       })
 
-      // UPDATE
       .addCase(updatePost.pending, (state) => {
         state.loading.fetchingPosts = true;
         state.error = null;
@@ -387,21 +386,19 @@ const postsSlice = createSlice({
         state.error = action.payload;
       })
 
-      // DELETE
       .addCase(deletePost.pending, (state) => {
         state.loading.fetchingPosts = true;
         state.error = null;
       })
       .addCase(deletePost.fulfilled, (state, action: PayloadAction<string>) => {
         state.loading.fetchingPosts = false;
-        state.posts = state.posts.filter((p: Post) => p._id !== action.payload); // maybe return the _id in delete
+        state.posts = state.posts.filter((p: Post) => p._id !== action.payload);
       })
       .addCase(deletePost.rejected, (state, action: PayloadAction<any>) => {
         state.loading.fetchingPosts = false;
         state.error = action.payload;
       })
 
-      // SHARE
       .addCase(sharePost.pending, (state) => {
         state.loading.sharingPost = true;
         state.error = null;
