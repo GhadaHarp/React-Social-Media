@@ -2,6 +2,7 @@ import axios from "axios";
 
 const axiosInstance = axios.create({
   // baseURL: "http://localhost:8000/api",
+  
   baseURL: "https://node-social-media.vercel.app/api",
 });
 
